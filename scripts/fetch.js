@@ -21,5 +21,3 @@ getId().then((data) => {
 getRep().then((data) => {
   console.log(data);
 });
-
-//"https://via.placeholder.com/400x300"
