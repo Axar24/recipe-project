@@ -12,6 +12,9 @@
       crossorigin="anonymous"
     />
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital@1&display=swap" rel="stylesheet">
       <style>
         .input{
             max-width: 500px;
@@ -21,28 +24,23 @@
         .main-header{
             font-family: 'Oleo Script', cursive;
         }
+
+        .card-title,.card-text{
+          font-family: 'Libre Bodoni', serif;
+        }
     </style>
   </head>
   <body>
 <div class="container-xxl my-5 text-center input">
  <div class="d-flex justify-content-center"><h2 class="main-header display-4 me-3 mt-3 ">Every Recipe</h2><img src="img/salad.png"  width="80px"></div>   
     
-    <form><input class="form-control my-3" type="text" placeholder="Enter Food Name" aria-label="default input example"></form>
+    <form class><input class="form-control my-3" type="text" placeholder="Enter Food Name" name ="food"aria-label="default input example"></form>
  </div>
 </section>
 <section id="card">
   <div class="container-xxl my-5 ">
-    <div class="row gx-5 gy-5">
-      <div class="col col-lg-3">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
+    <div class="row gx-5 gy-5 card-section">
+      
   </div>
 </div>
 </section>

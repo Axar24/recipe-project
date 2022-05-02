@@ -1,23 +1,17 @@
-const getRep = async () => {
-  const responce = await fetch(
-    "https://api.spoonacular.com/recipes/654959/information?apiKey=45055b7797714f42a6496662cb00415d&includeNutrition=true"
-  );
+const api = "8218447e114d4e0f8fecd78087c29ddc";
+
+const getRep = async (id) => {
+  const host = "https://api.spoonacular.com/recipes/";
+  const query = `${id}/information?apiKey=${api}&includeNutrition=true`;
+  const responce = await fetch(host + query);
   const data = await responce.json();
   return data;
 };
 
-const getId = async () => {
-  const responce = await fetch(
-    "https://api.spoonacular.com/recipes/complexSearch?apiKey=45055b7797714f42a6496662cb00415d&query=pasta"
-  );
+const getId = async (food) => {
+  const host = "https://api.spoonacular.com/recipes/complexSearch";
+  const query = `?apiKey=${api}&query=${food}`;
+  const responce = await fetch(host + query);
   const data = await responce.json();
   return data;
 };
-
-getId().then((data) => {
-  console.log(data.results);
-});
-
-getRep().then((data) => {
-  console.log(data);
-});
