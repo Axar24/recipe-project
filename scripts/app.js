@@ -1,5 +1,6 @@
 const foodForm = document.querySelector("form");
 const row = document.querySelector(".card-section");
+const element = document.getElementById("rep");
 
 const fetchId = async (food) => {
   const data = await getId(food);
@@ -14,7 +15,7 @@ const fetchId = async (food) => {
     };
 
     const showCards = (data) => {
-      let html = `<div class="col col-lg-3">
+      let html = `<div class="col col-lg-3" id ="rep">
         <div class="card bg-light">
           <img src="${data.image}"  class="card-img-top" alt="...">
           <div class="card-body">
@@ -25,7 +26,12 @@ const fetchId = async (food) => {
         </div>
       </div>`;
 
-      row.innerHTML += html;
+      if (row.childElementCount == 10) {
+        element.remove();
+        row.innerHTML += html;
+      } else {
+        row.innerHTML += html;
+      }
     };
 
     fetchRep(id).then((data) => {
@@ -39,9 +45,9 @@ foodForm.addEventListener("submit", (e) => {
   const food = foodForm.food.value.trim().toLowerCase();
   foodForm.reset();
   fetchId(food);
-  localStorage.setItem("food", food);
+  //localStorage.setItem("food", food);
 });
 
-if (localStorage.getItem("food")) {
-  fetchId(localStorage.getItem("food"));
-}
+// if (localStorage.getItem("food")) {
+//   fetchId(localStorage.getItem("food"));
+// }
