@@ -1,6 +1,5 @@
 const foodForm = document.querySelector("form");
 const row = document.querySelector(".card-section");
-const element = document.getElementById("rep");
 
 const fetchId = async (food) => {
   const data = await getId(food);
@@ -27,6 +26,7 @@ const fetchId = async (food) => {
       </div>`;
 
       if (row.childElementCount == 10) {
+        const element = document.getElementById("rep");
         element.remove();
         row.innerHTML += html;
       } else {
@@ -45,9 +45,9 @@ foodForm.addEventListener("submit", (e) => {
   const food = foodForm.food.value.trim().toLowerCase();
   foodForm.reset();
   fetchId(food);
-  //localStorage.setItem("food", food);
+  localStorage.setItem("food", food);
 });
 
-// if (localStorage.getItem("food")) {
-//   fetchId(localStorage.getItem("food"));
-// }
+if (localStorage.getItem("food")) {
+  fetchId(localStorage.getItem("food"));
+}
