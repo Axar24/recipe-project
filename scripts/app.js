@@ -6,6 +6,7 @@ const fetchId = async (food) => {
   return data;
 };
 
+//showcard function
 function showCards(data) {
   let html = `<div class="col col-lg-3" id ="rep">
         <div class="card bg-light">
@@ -27,6 +28,7 @@ function showCards(data) {
   }
 }
 
+//when submit
 foodForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const food = foodForm.food.value.trim().toLowerCase();
@@ -51,6 +53,22 @@ foodForm.addEventListener("submit", (e) => {
   localStorage.setItem("food", food);
 });
 
+//for reload
 if (localStorage.getItem("food")) {
-  fetchId(localStorage.getItem("food"));
+  fetchId(localStorage.getItem("food")).then((data) => {
+    const results = data.results; //results has 10 arrays
+
+    //add 10 id with loop
+    results.forEach((result) => {
+      const id = result.id;
+      const fetchRep = async (id) => {
+        const data = await getRep(id);
+        return data;
+      };
+
+      fetchRep(id).then((data) => {
+        showCards(data);
+      });
+    });
+  });
 }
