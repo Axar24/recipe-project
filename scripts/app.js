@@ -28,6 +28,23 @@ function showCards(data) {
   }
 }
 
+const passId = (data) => {
+  const results = data.results; //results has 10 arrays
+
+  //add 10 id with loop
+  results.forEach((result) => {
+    const id = result.id;
+    const fetchRep = async (id) => {
+      const data = await getRep(id);
+      return data;
+    };
+
+    fetchRep(id).then((data) => {
+      showCards(data);
+    });
+  });
+};
+
 //when submit
 foodForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -35,20 +52,7 @@ foodForm.addEventListener("submit", (e) => {
   foodForm.reset();
 
   fetchId(food).then((data) => {
-    const results = data.results; //results has 10 arrays
-
-    //add 10 id with loop
-    results.forEach((result) => {
-      const id = result.id;
-      const fetchRep = async (id) => {
-        const data = await getRep(id);
-        return data;
-      };
-
-      fetchRep(id).then((data) => {
-        showCards(data);
-      });
-    });
+    passId(data);
   });
   localStorage.setItem("food", food);
 });
@@ -56,19 +60,6 @@ foodForm.addEventListener("submit", (e) => {
 //for reload
 if (localStorage.getItem("food")) {
   fetchId(localStorage.getItem("food")).then((data) => {
-    const results = data.results; //results has 10 arrays
-
-    //add 10 id with loop
-    results.forEach((result) => {
-      const id = result.id;
-      const fetchRep = async (id) => {
-        const data = await getRep(id);
-        return data;
-      };
-
-      fetchRep(id).then((data) => {
-        showCards(data);
-      });
-    });
+    passId(data);
   });
 }
