@@ -8,8 +8,8 @@ const fetchId = async (food) => {
 
 //showcard function
 function showCards(data) {
-  let html = `<div class="col col-lg-3" id ="rep">
-        <div class="card bg-light">
+  let html = `<div class="col col-lg-3 " id ="rep" style="width: 28rem;">
+        <div class="card bg-light shadow-lg">
           <img src="${data.image}"  class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title display-6">${data.title}</h5>
