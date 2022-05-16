@@ -21,10 +21,6 @@
       .main-header {
         font-family: "Oleo Script", cursive;
       }
-      .ingredient {
-        max-width: 400px;
-        margin-left: 370px;
-      }
     </style>
   </head>
   <body>
