@@ -14,7 +14,7 @@ function showCards(data) {
           <div class="card-body">
             <h5 class="card-title display-6">${data.title}</h5>
             <p class="card-text">${data.summary}</p>
-            <a href="detail.php?id=${data.id}" class="btn btn-success">To Recipes</a>
+            <a href="detail.html?id=${data.id}" class="btn btn-success">To Recipes</a>
           </div>
         </div>
       </div>`;

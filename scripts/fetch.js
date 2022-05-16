@@ -1,4 +1,4 @@
-const api = "2e173148b2ac457fa7d0e3dbb6191017";
+const api = "ae82abe23cf2408fb414fcdd5054ab5a";
 
 const getRep = async (id) => {
   const host = "https://api.spoonacular.com/recipes/";
